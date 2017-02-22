@@ -1,0 +1,132 @@
+body{
+	background-color: #f5f5f5;
+}
+.nav-header{
+	background-color: #23b7e5 !important;
+	margin: 0 !important;
+}
+.nav-logo{
+	padding: 15px 50px;
+}
+li{
+	list-style: none;
+}
+.active{
+	background-color: rgb(40, 143, 200) ;
+}
+nav ul li a{
+	color: #fff !important;
+	font-weight: 600;
+	float: left;
+	padding: 20px 35px !important;
+	font-size: 17px;
+	margin-bottom: -10px;
+}
+nav ul li a:hover{
+	color: #fff;
+	text-decoration: none;
+	background-color: rgb(40, 143, 200) !important;
+}
+nav ul li a:focus{
+	outline:none;
+}
+a:link { 
+text-decoration: none; 
+} 
+.nav-header .icon-bar {
+    background-color: #fff !important;
+}
+.nav-header .navbar-toggle {
+    border-color: #fff !important;
+}
+.nav-header .navbar-toggle{
+	padding: 11px 10px;
+	margin-top: 11px;
+}
+.nav-header {
+	background-color: #23b7e5 !important;
+	margin: 0 !important;
+}
+
+.nav-logo {
+	padding: 15px 50px;
+}
+
+ul {
+	margin: 0;
+}
+.nav-header .icon-bar {
+	background-color: #fff !important;
+}
+
+.nav-header .navbar-toggle {
+	border-color: #fff !important;
+}
+
+.nav-header .navbar-toggle {
+	padding: 11px 10px;
+	margin-top: 11px;
+}
+
+.bs-example {
+	position: relative;
+	padding: 45px 15px 15px;
+	margin: 0 -15px 15px;
+	border-color: #e5e5e5 #eee #eee;
+	border-style: solid;
+	border-width: 1px 0;
+	-webkit-box-shadow: inset 0 3px 6px rgba(0, 0, 0, .05);
+	box-shadow: inset 0 3px 6px rgba(0, 0, 0, .05);
+}
+
+.bs-example::after {
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	font-size: 12px;
+	font-weight: 700;
+	color: #959595;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	content: "Example";
+}
+
+.bs-example::after {
+	content: "实例：" !important;
+}
+
+pre {
+	background-color: #f8f8f8;
+}
+
+.pre1 {
+	line-height: 40px;
+	font-size: 18px;
+}
+
+.s {
+	color: #d44950;
+}
+
+.na {
+	color: #4f9fcf;
+}
+
+.nt {
+	color: #2f6f9f;
+}
+.bg-img{
+	text-align: center;
+	margin-top: 10%;
+}
+.bg-img img{
+	border-radius: 14px;
+}
+.bg-img h3{
+	color: rgb(129, 129, 129);
+	letter-spacing: 2px;
+	margin-top: 35px;
+}
+.temporary{
+	height: 63em;
+}

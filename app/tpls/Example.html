@@ -1,0 +1,106 @@
+		<div class="container" role="main" style="padding-bottom: 50px;">
+			<!--
+            	示例一：数据绑定
+            -->
+			<div class="row">
+				<h2 class="page-header">示例一：数据绑定</h2>
+				<div class="bs-example col-xs-6" data-example-id="basic-forms">
+					<div class="form-group">
+						<input class="form-control" placeholder="名字" type="text" ng-model="name">
+					</div>
+				</div>
+				<pre class="col-xs-5 pull-right pre1"><code>你输入了: {{name}}</code></pre>
+			</div>
+			<!--
+            	示例二：指令
+            -->
+			<div class="row">
+				<h2 class="page-header">示例二：指令</h2>
+				<div class="bs-example col-xs-6" data-example-id="basic-forms">
+					<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;i <span class="na">ng-repeat</span>=<span class="s">"X in names"</span>&gt;&#123; &#123;X&#125; &#125;&lt;i&gt;</span> 
+
+<span class="nt">&#36;scope.names = [<span class="s">"Emil", "Tobias", "Linus"</span>];</span></code></pre></div>
+				</div>
+				<pre class="col-xs-5 pull-right pre1"><code><i ng-repeat="X in names">{{X}}  </i></code></pre>
+			</div>
+			<!--
+            	示例三：过滤器
+            -->
+			<div class="row">
+				<h2 class="page-header">示例三：过滤器</h2>
+				<div class="bs-example col-xs-6" data-example-id="basic-forms">
+					<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&#123; &#123;<span class="s">zhangsan | uppercase</span>&#125; &#125;</span>
+<span class="nt">&#123; &#123;<span class="s">zhangsan | lowercase</span>&#125; &#125;</span>
+<span class="nt">&#123; &#123;<span class="s">123 | currency</span>&#125; &#125;</span></code></pre></div>
+				</div>
+				<pre class="col-xs-5 pull-right pre1"><code><p>{{data.name}} 转化大写  {{ data.name | uppercase }}</p><p>{{data.Name}} 转化小写  {{ data.name | lowercase  }}</p><p><input type="number" ng-model="price" style="height: 28px;"> 总价 : {{ price | currency }}</p></code></pre>
+			</div>
+			<!--
+            	示例四：服务
+            -->
+			<div class="row">
+				<h2 class="page-header">示例四：服务</h2>
+				<div class="bs-example col-xs-6" data-example-id="basic-forms">
+					<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">$http.get("<span class="s">xeditable-groups.json</span>").success(function(<span class="s">response</span> {
+	<span class="s">$scope.response = response;</span>
+}); </span></code></pre></div>
+				</div>
+				<pre class="col-xs-5 pull-right pre1"><code><i ng-repeat="y in response">{{y.id+':'+y.text+', '}}</i></code></pre>
+			</div>
+			<div class="row">	
+				<div class="bs-example col-xs-6" data-example-id="basic-forms">
+					<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">$timeout(function() {
+	<span class="s"> $scope.myHeader = "How are you today?";</span>
+}, 4000); </span></code></pre></div>
+				</div>
+				<pre class="col-xs-5 pull-right pre1"><code><i>{{myHeader}}</i></code></pre>
+			</div>
+			<!--
+            	示例五：表格编辑
+            -->
+			<div class="row">
+				<h2 class="page-header">示例五：表格编辑</h2>
+				<table class="table table-bordered table-hover bg-white">
+					<tr style="font-weight: bold">
+						<td style="width:35%">Name</td>
+						<td style="width:20%">Status</td>
+						<td style="width:20%">Group</td>
+						<td style="width:25%">Edit</td>
+					</tr>
+					<tr ng-repeat="user in users">
+						<td>
+							<!-- editable username (text with validation)-->
+							<span editable-text="user.name" e-name="name" e-form="rowform" onbeforesave="checkName($data, user.id)" e-required="">{{ user.name || &apos;empty&apos; }}</span>
+						</td>
+						<td>
+							<!-- editable status (select-local)-->
+							<span editable-select="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">{{ showStatus(user) }}</span>
+						</td>
+						<td>
+							<!-- editable group (select-remote)-->
+							<span editable-select="user.group" e-name="group" onshow="loadGroups()" e-form="rowform" e-ng-options="g.id as g.text for g in groups">{{ showGroup(user) }}</span>
+						</td>
+						<td style="white-space: nowrap">
+							<!-- form-->
+							<form editable-form name="rowform" onbeforesave="saveUser($data, user.id)" ng-show="rowform.$visible" shown="inserted == user" class="form-buttons form-inline">
+								<button type="submit" ng-disabled="rowform.$waiting" title="Save" class="btn btn-sm btn-info">
+	                  <em class="icon-save"></em>
+	               </button>
+								<button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" title="Cancel" class="btn btn-sm btn-default">
+	                  <em class="icon-remove"></em>
+	               </button>
+							</form>
+							<div ng-show="!rowform.$visible" class="buttons">
+								<button ng-click="rowform.$show()" title="Edit" class="btn btn-sm btn-info">
+	                  <em class="icon-pencil"></em>
+	               </button>
+								<button ng-click="removeUser($index)" title="Delete" class="btn btn-sm btn-danger">
+	                  <em class="icon-trash"></em>
+	               </button>
+							</div>
+						</td>
+					</tr>
+				</table>
+				<button ng-click="addUser()" class="btn btn-default">Add row</button>
+			</div>
+		</div>
